@@ -7,10 +7,10 @@ T input_validation(T & value, std::string error_msg)
 {
     while (!(std::cin >> value)) 
     {
-		std::cout << error_msg;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
+	std::cout << error_msg;
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
     return value;
 }
 
@@ -19,10 +19,10 @@ T input_validation_plus(T & value, const std::function<bool(T)> & invalid_inputs
 {
     while (!(std::cin >> value) || invalid_inputs(value)) 
     {
-		std::cout << error_msg;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
+	std::cout << error_msg;
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
     return value;
 }
 
@@ -30,3 +30,6 @@ T input_validation_plus(T & value, const std::function<bool(T)> & invalid_inputs
 // no endline after error message print to leave room for input message :3
 // cannot use 'value' in error message and cannot create different messages for specific errors
 // try listing the errors within 'error_msg' if there aren't many conditions
+
+// This works well for a terminal interface that requires infinite retries for invalid inputs
+// Not sure if this helps with anything else though
